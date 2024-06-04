@@ -45,7 +45,7 @@ onnxruntime = "^1.15.0"
 optional = true
 
 [tool.poetry.group.cuda.dependencies]
-onnxruntime-gpu = {version = "^1.17.0", source = "cuda12"}
+onnxruntime-gpu = {url = "https://nvidia.box.com/shared/static/fy55jvniujjbigr4gwkv8z1ma6ipgspg.whl" }
 
 [tool.poetry.group.openvino]
 optional = true
