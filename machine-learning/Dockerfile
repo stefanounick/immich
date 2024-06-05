@@ -8,8 +8,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends python3-dev
 
 FROM builder-cpu as builder-cuda
 
-COPY onnxruntime_gpu-1.18.0-cp311-cp311-linux_aarch64.whl ./
-
 FROM builder-cpu as builder-armnn
 
 ENV ARMNN_PATH=/opt/armnn
@@ -36,6 +34,7 @@ RUN poetry config installer.max-workers 10 && \
 RUN python3 -m venv /opt/venv
 
 COPY poetry.lock pyproject.toml ./
+COPY onnxruntime_gpu-1.18.0-cp311-cp311-linux_aarch64.whl ./
 RUN poetry lock && cat poetry.lock
 RUN poetry install --sync --no-interaction --no-ansi --no-root --with ${DEVICE} --without dev
 
