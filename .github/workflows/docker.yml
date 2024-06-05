@@ -59,6 +59,10 @@ jobs:
             device: cpu
 
     steps:
+      - name: Remove unnecessary files
+        run: |
+            sudo rm -rf /usr/share/dotnet
+            sudo rm -rf "$AGENT_TOOLSDIRECTORY"
       - name: Checkout
         uses: actions/checkout@v4
 
