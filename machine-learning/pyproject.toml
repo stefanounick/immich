@@ -46,7 +46,7 @@ optional = true
 
 [tool.poetry.group.cuda.dependencies]
 onnxruntime-gpu = [
-  { markers="platform_machine=='aarch64'", url = "https://nvidia.box.com/shared/static/fy55jvniujjbigr4gwkv8z1ma6ipgspg.whl" },
+  { markers="platform_machine=='aarch64'", file = "./onnxruntime_gpu-1.18.0-cp311-cp311-linux_aarch64.whl" },
   { markers="platform_machine!='aarch64'", version = "^1.17.0", source = "cuda12" },
 ]
 

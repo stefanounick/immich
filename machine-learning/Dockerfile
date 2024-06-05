@@ -35,6 +35,7 @@ RUN python3 -m venv /opt/venv
 
 COPY poetry.lock pyproject.toml ./
 RUN uname -m
+RUN wget https://nvidia.box.com/shared/static/fy55jvniujjbigr4gwkv8z1ma6ipgspg.whl -O onnxruntime_gpu-1.18.0-cp311-cp311-linux_aarch64.whl
 RUN poetry lock && cat poetry.lock
 RUN poetry install --sync --no-interaction --no-ansi --no-root --with ${DEVICE} --without dev
 
